@@ -15,7 +15,7 @@ function App() {
 
    const handleInputChange = (e) => {
     setDogName(e.target.value);
-    console.log(`Nombre: ${dogName}`);
+    // console.log(`Nombre: ${dogName}`);
   };
 
   const handleCheckboxChange = (event) => {
@@ -25,26 +25,46 @@ function App() {
         checkbox.name === name ? { ...checkbox, checked: checked } : checkbox
       )
     );
-    console.log(`Mi perro es un ${name}`);
+    // console.log(`Mi perro es un ${name}`);
   };
 
   const handleSelectChange = (e) => {
     setSelectedOption(e.target.value);
-    console.log(`Raza: ${e.target.value}`)
+    // console.log(`Raza: ${e.target.value}`)
   };
 
   const handleRadioChange = (e) => {
     setSelectedRadio(e.target.value);
-    console.log(`Tamaño: ${e.target.value}`)
+    // console.log(`Tamaño: ${e.target.value}`)
   };
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    console.log('Formulario enviado!')
+
+    // Imprimir el resultado de todos los inputs
+    console.log('Nombre del Perro:', dogName);
+
+    const selectedCheckboxValues = checkboxValues.filter(checkbox => checkbox.checked);
+    console.log('Habilidades Caninas:', selectedCheckboxValues.map(checkbox => checkbox.name).join(', '));     
+    const isDeveloper= selectedCheckboxValues.some(checkbox => checkbox.name === 'Developer')
+    console.log (`Es desarrollador: ${isDeveloper}`)
+
+    console.log('Raza:', selectedOption);
+    
+    console.log('Tamaño:', selectedRadio);
+
+
+
+  }
 
   return (
     <div>
       <h2>Formulario</h2>
-      <form>
+      <form onSubmit={handleFormSubmit}>
        {/* Nombre */}
         <div>
-          <label htmlFor="nombre">Nombre del Perro</label>
+          <label htmlFor="nombre">Nombre del Perro</label><br />
           <input type="text" id="nombre" name="nombre" onChange={handleInputChange} required/>
         </div>
 
@@ -72,6 +92,7 @@ function App() {
         <div>
           <label>
             Raza 
+            <br />
             <select value={selectedOption} onChange={handleSelectChange}>
               <option value="">Selecciona una opción</option>
               <option value="Pura">Raza Pura</option>
@@ -91,7 +112,7 @@ function App() {
               <input
                 type="radio"
                 value="Big"
-                checked={selectedRadio === 'radio1'}
+                checked={selectedRadio === 'Big'}
                 onChange={handleRadioChange}
               />
             Big Dog
@@ -103,13 +124,16 @@ function App() {
               <input
                 type="radio"
                 value="Little"
-                checked={selectedRadio === 'radio2'}
+                checked={selectedRadio === 'Little'}
                 onChange={handleRadioChange}
               />
             Little Dog
             </label>
           </div> 
         </div> 
+
+        {/* Boton Submit */}
+      <button type="submit">Enviar</button>
       </form>
     </div>
   );
