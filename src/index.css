@@ -1,17 +1,39 @@
+@font-face {
+  font-family: 'fontHeavy';
+  src: url('./assets/fonts/Avenir-Book.woff') format('woff');
+  /* Puedes agregar más formatos si tienes disponibles, como woff2, ttf, etc. */
+}
+
+@font-face {
+  font-family: 'fontMedium';
+  src: url('./assets/fonts/Avenir-Medium.woff') format('woff');
+  /* Puedes agregar más formatos si tienes disponibles, como woff2, ttf, etc. */
+}
+
+@font-face {
+  font-family: 'fontLight';
+  src: url('./assets/fonts/Avenir-Light.woff') format('woff');
+  /* Puedes agregar más formatos si tienes disponibles, como woff2, ttf, etc. */
+}
+
 :root {
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'fontMedium', sans-serif;
   line-height: 1.5;
-  font-weight: 400;
+
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
+
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+
+
 
 a {
   font-weight: 500;
@@ -28,11 +50,19 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
+  background-image: url("/background1.jpg");
+  background-size: contain;
 }
 
 h1 {
-  font-size: 3.2em;
+  font-size: 2em;
   line-height: 1.1;
+  font-family: 'fontMedium', sans-serif;
+}
+h2 {
+  font-size: 1.2em;
+  line-height: 1.1;
+  font-family: 'fontLight', sans-serif;
 }
 
 button {
