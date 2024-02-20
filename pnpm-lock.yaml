@@ -5,12 +5,18 @@ settings:
   excludeLinksFromLockfile: false
 
 dependencies:
+  '@sweetalert/with-react':
+    specifier: ^0.1.1
+    version: 0.1.1(react-dom@18.2.0)(react@18.2.0)(sweetalert@2.1.2)
   react:
     specifier: ^18.2.0
     version: 18.2.0
   react-dom:
     specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
+  sweetalert:
+    specifier: ^2.1.2
+    version: 2.1.2
 
 devDependencies:
   '@types/react':
@@ -688,6 +694,27 @@ packages:
     dev: true
     optional: true
 
+  /@sweetalert/transformer@0.1.1(sweetalert@2.1.2):
+    resolution: {integrity: sha512-QdV8CrelIoK95kWOrZNMKXL9oEQFsvaForZcw2UijhmVJX/wzopPRLT/sAg51436TJ4q5angt8BvHQInehGFHA==}
+    peerDependencies:
+      sweetalert: ^2.1.x
+    dependencies:
+      sweetalert: 2.1.2
+    dev: false
+
+  /@sweetalert/with-react@0.1.1(react-dom@18.2.0)(react@18.2.0)(sweetalert@2.1.2):
+    resolution: {integrity: sha512-LC9eMYKsv8ydvhvKufdVPOIMDgbAFsxn7eeKWadwvXPsFcflosfm/cXZSO0Ras5TuaO3WxHEgvitKD6UfpeIwQ==}
+    peerDependencies:
+      react: ^16.x.x
+      react-dom: ^16.x.x
+    dependencies:
+      '@sweetalert/transformer': 0.1.1(sweetalert@2.1.2)
+      react: 18.2.0
+      react-dom: 18.2.0(react@18.2.0)
+    transitivePeerDependencies:
+      - sweetalert
+    dev: false
+
   /@types/babel__core@7.20.5:
     resolution: {integrity: sha512-qoQprZvz5wQFJwMDqeseRXWv3rqMvhgpbXFfVyWhbx9X47POIA6i/+dXefEmZKoAgOaTdaIgNSMqMIU61yRyzA==}
     dependencies:
@@ -1139,6 +1166,10 @@ packages:
       is-date-object: 1.0.5
       is-symbol: 1.0.4
     dev: true
+
+  /es6-object-assign@1.1.0:
+    resolution: {integrity: sha512-MEl9uirslVwqQU369iHNWZXsI8yaZYGg/D65aOgZkeyFJwHYSxilf7rQzXKI7DdDuBPrBXbfk3sl9hJhmd5AUw==}
+    dev: false
 
   /esbuild@0.19.12:
     resolution: {integrity: sha512-aARqgq8roFBj054KvQr5f1sFu0D65G+miZRCuJyJ0G13Zwx7vRar5Zhn2tkQNzIXcBrNVsv/8stehpj+GAjgbg==}
@@ -1963,6 +1994,10 @@ packages:
     engines: {node: '>= 0.8.0'}
     dev: true
 
+  /promise-polyfill@6.1.0:
+    resolution: {integrity: sha512-g0LWaH0gFsxovsU7R5LrrhHhWAWiHRnh1GPrhXnPgYsDkIqjRYUYSZEsej/wtleDrz5xVSIDbeKfidztp2XHFQ==}
+    dev: false
+
   /prop-types@15.8.1:
     resolution: {integrity: sha512-oj87CgZICdulUohogVAR7AjlC0327U4el4L6eAvOqCeudMDVU0NThNaV+b9Df4dXgSP1gXMTnPdhfe/2qDH5cg==}
     dependencies:
@@ -2231,6 +2266,13 @@ packages:
     resolution: {integrity: sha512-ot0WnXS9fgdkgIcePe6RHNk1WA8+muPa6cSjeR3V8K27q9BB1rTE3R1p7Hv0z1ZyAc8s6Vvv8DIyWf681MAt0w==}
     engines: {node: '>= 0.4'}
     dev: true
+
+  /sweetalert@2.1.2:
+    resolution: {integrity: sha512-iWx7X4anRBNDa/a+AdTmvAzQtkN1+s4j/JJRWlHpYE8Qimkohs8/XnFcWeYHH2lMA8LRCa5tj2d244If3S/hzA==}
+    dependencies:
+      es6-object-assign: 1.1.0
+      promise-polyfill: 6.1.0
+    dev: false
 
   /text-table@0.2.0:
     resolution: {integrity: sha512-N+8UisAXDGk8PFXP4HAzVR9nbfmVJ3zYLAWiTIoqC5v5isinhr+r5uaO8+7r3BMfuNIufIsA7RdpVgacC2cSpw==}

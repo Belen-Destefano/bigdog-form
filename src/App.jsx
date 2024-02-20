@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import './App.css';
+import swal from '@sweetalert/with-react'
 import Form from './components/form';
 import SecretComponent from './components/secretComponent';
 
@@ -63,20 +64,30 @@ function App() {
         setShowSpinner(false);
         setShowSecretComponent(true)
       },2000 )
-    }
-
-    // const secretResponse = isDeveloper & selectedRadio === 'Big' ? '¡Contraseña secreta ingresada con éxito! Un agente secreto de Big Dog está en camino para comunicarse con usted. Por razones de seguridad, le pedimos que cierre esta página web y espere instrucciones. ¡Gracias por confiar en Big Dog para resolver su Web!' : 'Formulario enviado! Comenzaremos a ayudarlo con la busqueda de un perro con las descripciones establecidas. Esperamos encontrarle el mejor amigo fiel que pueda imaginar y supere sus expectativas'
-
-    // alert(secretResponse)
-
+    }else {
+      swal({
+        title: "¡Recibimos las características que buscas en tu nuevo amigo peludo!",
+        text: "Te enviaremos un mail en cuanto encontremos un perro con esas especificaciones. Esperamos poder acercarte a ese fiel amigo que hará que tu vida sea aún más especial.",
+    
+        button: "OK",
+        confirmButtonColor: "#777953",
+      })}
+ 
+    
 
   }
+
+  const handleClick = () => {
+   
+    setShowSecretComponent(false)
+    document.body.style.backgroundImage = 'url(/background1.jpg)';
+  };
 
 
 
   return (
     <>     
-      {showSpinner ? <div style={{height:'100vh', overflow: 'hidden'}}><img style={{width: '100%'}} src="https://i.pinimg.com/originals/c5/9a/d2/c59ad2bd4ad2fbacd04017debc679ddb.gif" alt="Loading..." /></div>: showSecretComponent? <SecretComponent/>:  <Form
+      {showSpinner ? <div style={{height:'100vh', overflow: 'hidden'}}><img style={{width: '100%'}} src="https://i.pinimg.com/originals/c5/9a/d2/c59ad2bd4ad2fbacd04017debc679ddb.gif" alt="Loading..." /></div>: showSecretComponent? <SecretComponent handleClick={handleClick}/>:  <Form
         handleInputChange={handleInputChange}
         handleCheckboxChange={handleCheckboxChange}
         handleSelectChange={handleSelectChange}

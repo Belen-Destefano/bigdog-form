@@ -2,7 +2,7 @@
 
 function Form({handleFormSubmit, handleInputChange, checkboxValues, handleCheckboxChange, handleSelectChange, selectedOption, selectedRadio, handleRadioChange}) {
   return (
-    <div style={{backdropFilter: 'blur(28px)', padding: '2%',  boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', width: '100%'}}>
+    <div style={{backdropFilter: 'blur(28px)', padding: '2%',  boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', width: '100%',   marginTop: '3%'}}>
      
     <h1>Formulario de Adopcion Canina</h1>
     <h2>Como quisieras que sea tu amigo perruno ideal </h2>
