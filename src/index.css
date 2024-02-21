@@ -112,3 +112,61 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+@media (max-width: 1298px) {
+
+  .spinner{
+    height: 100%;
+    object-fit: cover;
+  }
+}
+
+
+@media (max-width: 500px) {
+  body{
+  
+    place-items: center !important;
+    background-position-x: -496px;
+    background-position-y: -177px;
+
+  }
+
+  .containerForm{
+    background-position-x: -496px;
+    background-position-y: -177px;
+    margin-top: 0% !important;
+    padding: 0% !important;
+  
+  }
+
+  .form{
+    padding-left: 3%;
+  }
+
+  #root{
+    width: 100% !important;
+  }
+
+  h1{
+    margin-top: 0% !important;
+    padding: 3%;
+  }
+
+  h2{
+    padding: 3%;
+  }
+
+  .submitButtom{
+    margin-bottom: 10%;
+  }
+
+  #nombre{
+    width: 13em;
+    height: 20px;
+  }
+
+  #select{
+    width: 13em;
+    height: 20px;
+  }
+}

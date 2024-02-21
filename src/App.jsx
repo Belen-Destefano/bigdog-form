@@ -63,7 +63,7 @@ function App() {
       setTimeout(()=>{
         setShowSpinner(false);
         setShowSecretComponent(true)
-      },2000 )
+      },3000 )
     }else {
       swal({
         title: "¡Recibimos las características que buscas en tu nuevo amigo peludo!",
@@ -87,7 +87,7 @@ function App() {
 
   return (
     <>     
-      {showSpinner ? <div style={{height:'100vh', overflow: 'hidden'}}><img style={{width: '100%'}} src="https://i.pinimg.com/originals/c5/9a/d2/c59ad2bd4ad2fbacd04017debc679ddb.gif" alt="Loading..." /></div>: showSecretComponent? <SecretComponent handleClick={handleClick}/>:  <Form
+      {showSpinner ? <div style={{height:'100vh', overflow: 'hidden'}}><img className='spinner' style={{width: '100%'}} src="https://i.pinimg.com/originals/c5/9a/d2/c59ad2bd4ad2fbacd04017debc679ddb.gif" alt="Loading..." /></div>: showSecretComponent? <SecretComponent handleClick={handleClick}/>:  <Form
         handleInputChange={handleInputChange}
         handleCheckboxChange={handleCheckboxChange}
         handleSelectChange={handleSelectChange}

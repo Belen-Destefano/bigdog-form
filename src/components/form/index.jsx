@@ -2,11 +2,11 @@
 
 function Form({handleFormSubmit, handleInputChange, checkboxValues, handleCheckboxChange, handleSelectChange, selectedOption, selectedRadio, handleRadioChange}) {
   return (
-    <div style={{backdropFilter: 'blur(28px)', padding: '2%',  boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', width: '100%',   marginTop: '3%'}}>
+    <div className="containerForm" style={{backdropFilter: 'blur(28px)', padding: '2%',  boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', width: '100%',   marginTop: '3%'}}>
      
     <h1>Formulario de Adopcion Canina</h1>
     <h2>Como quisieras que sea tu amigo perruno ideal </h2>
-    <div style={   { display: 'flex', flexDirection: 'row'} }>
+    <div className="form" style={   { display: 'flex', flexDirection: 'row'} }>
 
       <form onSubmit={handleFormSubmit} style={{width: '40%'}}>
       {/* Nombre */}
@@ -40,7 +40,7 @@ function Form({handleFormSubmit, handleInputChange, checkboxValues, handleCheckb
           <label>
             Raza 
             <br />
-            <select value={selectedOption} onChange={handleSelectChange}>
+            <select id="select" value={selectedOption} onChange={handleSelectChange}>
               <option value="">Selecciona una opción</option>
               <option value="Pura">Raza Pura</option>
               <option value="Mezcla">Mezcla de Raza</option>
@@ -81,7 +81,7 @@ function Form({handleFormSubmit, handleInputChange, checkboxValues, handleCheckb
         
         <br />
         {/* Boton Submit */}
-        <button type="submit">Enviar</button>
+        <button className="submitButtom" type="submit">Enviar</button>
       </form>
 
       <div style={{ width: '100%', backgroundImage: 'url("/backgroundDog.png")', backgroundSize: 'cover' }}>
