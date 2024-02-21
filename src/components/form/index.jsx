@@ -1,18 +1,19 @@
 // import React from 'react'
 
-function Form({handleFormSubmit, handleInputChange, checkboxValues, handleCheckboxChange, handleSelectChange, selectedOption, selectedRadio, handleRadioChange}) {
+function Form({handleFormSubmit, handleInputChange, checkboxValues, handleCheckboxChange, handleSelectChange, selectedOption, selectedRadio, handleRadioChange, email}) {
   return (
     <div className="containerForm" style={{backdropFilter: 'blur(28px)', padding: '2%',  boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', width: '100%',   marginTop: '3%'}}>
      
     <h1>Formulario de Adopcion</h1>
-    <h2>Como quisieras que sea tu amigo perruno ideal </h2>
+    <h2>Contanos como quisieras que sea tu amigo perruno ideal </h2>
     <div className="form" style={   { display: 'flex', flexDirection: 'row'} }>
 
       <form onSubmit={handleFormSubmit} style={{width: '40%'}}>
       {/* Nombre */}
         <div>
-          <label htmlFor="email">Correo electrónico</label><br />
-          <input type="email" id="nombre" name="nombre" onChange={handleInputChange} required/>
+          <label htmlFor="email">Correo electrónico<br />
+          <input type="email" id="email" name="email" value={email} onChange={handleInputChange} required/>
+          </label>
         </div>
 
         <br />
@@ -53,30 +54,34 @@ function Form({handleFormSubmit, handleInputChange, checkboxValues, handleCheckb
         <br />
         {/* Tamaño */}
         <div>
-          <label>Tamaño</label>
-          <div>
-            <label>
-              <input
-                type="radio"
-                value="Big"
-                checked={selectedRadio === 'Big'}
-                onChange={handleRadioChange}
-              />
-            Big Dog
-            </label>
-          </div>
-  
-          <div>
-            <label>
-              <input
-                type="radio"
-                value="Little"
-                checked={selectedRadio === 'Little'}
-                onChange={handleRadioChange}
-              />
-            Little Dog
-            </label>
-          </div> 
+          <label>Tamaño
+            <div>
+              <label>
+                <input
+                  type="radio"
+                  name="big"
+                  value="Big"
+                  checked={selectedRadio === 'Big'}
+                  onChange={handleRadioChange}
+                />
+              Big Dog
+              </label>
+            </div>
+      
+    
+            <div>
+              <label>
+                <input
+                  type="radio"
+                  name="little"
+                  value="Little"
+                  checked={selectedRadio === 'Little'}
+                  onChange={handleRadioChange}
+                />
+              Little Dog
+              </label>
+            </div> 
+          </label>
         </div> 
         
         <br />

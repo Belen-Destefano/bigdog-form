@@ -8,7 +8,7 @@ function App() {
 
   const [showSpinner, setShowSpinner] = useState (false)
   const[showSecretComponent ,setShowSecretComponent] = useState(false)
-  const [dogName, setDogName] = useState('');
+  const [email, setEmail] = useState('');
   const [checkboxValues, setCheckboxValues] = useState([
     { name: "Cazador", checked: false },
     { name: "Amigable", checked: false },
@@ -20,8 +20,8 @@ function App() {
   const [selectedRadio, setSelectedRadio] = useState('');
 
   const handleInputChange = (e) => {
-    setDogName(e.target.value);
-    console.log(`Nombre: ${dogName}`);
+    setEmail(e.target.value);
+    // console.log(`Nombre: ${e.target.value}`);
   };
 
   const handleCheckboxChange = (event) => {
@@ -44,6 +44,13 @@ function App() {
     // console.log(`Tamaño: ${e.target.value}`)
   };
 
+  const resetForm = () => {
+    setEmail('');
+    setCheckboxValues(checkboxValues.map(checkbox => ({ ...checkbox, checked: false })));
+    setSelectedOption('');
+    setSelectedRadio('');
+  };
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
     // console.log('Formulario enviado!')
@@ -63,15 +70,26 @@ function App() {
       setTimeout(()=>{
         setShowSpinner(false);
         setShowSecretComponent(true)
-      },3000 )
+      },2000 )
+
+      resetForm()
     }else {
       swal({
         title: "¡Recibimos las características que buscas en tu nuevo amigo peludo!",
         text: "Te enviaremos un mail en cuanto encontremos un perro con esas especificaciones. Esperamos poder acercarte a ese fiel amigo que hará que tu vida sea aún más especial.",
     
-        button: "OK",
-        confirmButtonColor: "#777953",
-      })}
+        confirm: {
+          text: "OK",
+          value: true,
+          visible: true,
+          className: "",
+          closeModal: true
+        },
+        ButtonColor: "#777953",
+      })
+      resetForm()
+      
+    }
  
     
 
@@ -83,6 +101,7 @@ function App() {
     document.body.style.backgroundImage = 'url(/background1.jpg)';
   };
 
+ 
 
 
   return (
@@ -93,6 +112,7 @@ function App() {
         handleSelectChange={handleSelectChange}
         handleRadioChange={handleRadioChange}
         handleFormSubmit={handleFormSubmit}
+        email={email}
         checkboxValues={checkboxValues}
         selectedOption={selectedOption}
         selectedRadio={selectedRadio}
