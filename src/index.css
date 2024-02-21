@@ -166,14 +166,19 @@ button:focus-visible {
     margin-bottom: 10%;
   }
 
-  #nombre{
+  #email{
     width: 13em;
-    height: 20px;
+    height: 18px;
   }
 
   #select{
     width: 13em;
-    height: 28px;
+    height: 26px;
+  }
+
+  .swal-text {
+    
+    text-align: center;
   }
 
   input[type="checkbox"]{
