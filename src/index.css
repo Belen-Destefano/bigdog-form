@@ -126,8 +126,8 @@ button:focus-visible {
   body{
   
     place-items: center !important;
-    background-position-x: -496px;
-    background-position-y: -177px;
+    background-position-x: -353px;
+    background-position-y: 2px;
 
   }
 
@@ -141,6 +141,7 @@ button:focus-visible {
 
   .form{
     padding-left: 3%;
+    margin-top: 3%;
   }
 
   #root{
@@ -148,12 +149,17 @@ button:focus-visible {
   }
 
   h1{
+  
     margin-top: 0% !important;
+    padding-top: 9% !important;
     padding: 3%;
+    font-size: 1.6em !important;
+    margin-bottom: 0% !important;
   }
 
   h2{
     padding: 3%;
+    margin: 0px;
   }
 
   .submitButtom{
@@ -167,6 +173,19 @@ button:focus-visible {
 
   #select{
     width: 13em;
-    height: 20px;
+    height: 26px;
   }
+
+  input[type="checkbox"]{
+    transform: scale(1.5);
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+  input[type="radio"]{
+    transform: scale(1.5);
+    margin-right: 10px;
+    margin-bottom: 10px;
+  }
+
+  
 }

@@ -4,7 +4,7 @@ function Form({handleFormSubmit, handleInputChange, checkboxValues, handleCheckb
   return (
     <div className="containerForm" style={{backdropFilter: 'blur(28px)', padding: '2%',  boxShadow: '0 0 10px rgba(0, 0, 0, 0.5)', width: '100%',   marginTop: '3%'}}>
      
-    <h1>Formulario de Adopcion Canina</h1>
+    <h1>Formulario de Adopcion</h1>
     <h2>Como quisieras que sea tu amigo perruno ideal </h2>
     <div className="form" style={   { display: 'flex', flexDirection: 'row'} }>
 
