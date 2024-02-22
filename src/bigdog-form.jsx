@@ -1,84 +1,28 @@
-import swal from "@sweetalert/with-react";
-import { useState } from "react";
 import "./App.css";
 import Form from "./components/form";
+import swal from "@sweetalert/with-react";
 import SecretComponent from "./components/secretComponent";
+import { useState } from "react";
 
-function BigdogForm() {
+function BigdogForm2() {
   const [showSpinner, setShowSpinner] = useState(false);
   const [showSecretComponent, setShowSecretComponent] = useState(false);
-  const [email, setEmail] = useState("");
-  const [checkboxValues, setCheckboxValues] = useState([
-    { name: "Cazador", checked: false },
-    { name: "Amigable", checked: false },
-    { name: "Developer", checked: false },
-    { name: "Sabueso", checked: false },
-    { name: "Guardian", checked: false },
-  ]);
-  const [selectedOption, setSelectedOption] = useState("");
-  const [selectedRadio, setSelectedRadio] = useState("");
+  
 
-  const handleInputChange = (e) => {
-    setEmail(e.target.value);
-    // console.log(`Nombre: ${e.target.value}`);
-  };
-
-  const handleCheckboxChange = (event) => {
-    const { name, checked } = event.target;
-    setCheckboxValues((prevState) =>
-      prevState.map((checkbox) =>
-        checkbox.name === name ? { ...checkbox, checked: checked } : checkbox
-      )
-    );
-    // console.log(`Mi perro es un ${name}`);
-  };
-
-  const handleSelectChange = (e) => {
-    setSelectedOption(e.target.value);
-    // console.log(`Raza: ${e.target.value}`)
-  };
-
-  const handleRadioChange = (e) => {
-    setSelectedRadio(e.target.value);
-    // console.log(`Tamaño: ${e.target.value}`)
-  };
-
-  const resetForm = () => {
-    setEmail("");
-    setCheckboxValues(
-      checkboxValues.map((checkbox) => ({ ...checkbox, checked: false }))
-    );
-    setSelectedOption("");
-    setSelectedRadio("");
-  };
-
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
-   
-
-    const selectedCheckboxValues = checkboxValues.filter(
-      (checkbox) => checkbox.checked
-    );
- 
-    const isDeveloper = selectedCheckboxValues.some(
-      (checkbox) => checkbox.name === "Developer"
-    );
+  const handleOnSubmit = (mascota) =>{  
     
+    console.log({mascota});
 
-    if (
-      isDeveloper &
-      (selectedRadio === "Big") &
-      (selectedOption === "Developer")
-    ) {
+
+    if (mascota.raza === 'Developer' && mascota.tamaño === 'Big' && mascota.habilidades.Developer){
       setShowSpinner(true);
 
       setTimeout(() => {
         setShowSpinner(false);
         setShowSecretComponent(true);
       }, 2000);
-
-      resetForm();
-    } else {
+    }
+    else {
       swal({
         title:
           "¡Recibimos las características que buscas en tu nuevo amigo peludo!",
@@ -93,14 +37,16 @@ function BigdogForm() {
         },
         ButtonColor: "#777953",
       });
-      resetForm();
+     
     }
-  };
+
+  }
 
   const handleClick = () => {
     setShowSecretComponent(false);
     document.body.style.backgroundImage = "url(/background1.jpg)";
   };
+
 
   if (showSpinner) {
     return (
@@ -119,19 +65,9 @@ function BigdogForm() {
     return <SecretComponent handleClick={handleClick} />;
   }
 
-  return (
-    <Form
-      handleInputChange={handleInputChange}
-      handleCheckboxChange={handleCheckboxChange}
-      handleSelectChange={handleSelectChange}
-      handleRadioChange={handleRadioChange}
-      handleFormSubmit={handleFormSubmit}
-      email={email}
-      checkboxValues={checkboxValues}
-      selectedOption={selectedOption}
-      selectedRadio={selectedRadio}
-    />
-  );
+  return <Form onSubmit={handleOnSubmit} />;
+
 }
 
-export default BigdogForm;
+export default BigdogForm2;
+
