@@ -54,20 +54,16 @@ function BigdogForm() {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
-    // console.log('Formulario enviado!')
-    // Imprimir el resultado de todos los inputs
-    // console.log('Nombre del Perro:', dogName);
+   
 
     const selectedCheckboxValues = checkboxValues.filter(
       (checkbox) => checkbox.checked
     );
-    // console.log('Habilidades Caninas:', selectedCheckboxValues.map(checkbox => checkbox.name).join(', '));
+ 
     const isDeveloper = selectedCheckboxValues.some(
       (checkbox) => checkbox.name === "Developer"
     );
-    // console.log (`Es desarrollador: ${isDeveloper}`)
-    // console.log('Raza:', selectedOption);
-    // console.log('Tamaño:', selectedRadio);
+    
 
     if (
       isDeveloper &

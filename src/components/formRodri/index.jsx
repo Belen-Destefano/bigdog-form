@@ -9,16 +9,39 @@ const skillsCans = [
 ];
 
 function Form({ onSubmit }) {
-  const [mascota, setMascota] = useState({});
+  // const [mascota, setMascota] = useState({});
+  const [mascota, setMascota] = useState({ habilidades: {} });
 
   const handleOnSubmit = (e) => {
     e.preventDefault()
     onSubmit(mascota)
+   
   }
 
+  // const handleOnChange = (event) => {   
+  //   setMascota({ ...mascota, [event.target.name]: event.target.value || event.target.checked });
+  // };
+
   const handleOnChange = (event) => {
-    setMascota({ ...mascota, [event.target.name]: event.target.value || event.target.checked });
+    const { name, value, checked, type } = event.target;
+  
+    if (type === "checkbox") {
+      setMascota(prevMascota => ({
+        ...prevMascota,
+        habilidades: {
+          ...prevMascota.habilidades,
+          [name]: checked
+        }
+      }));
+    } else {
+      setMascota(prevMascota => ({
+        ...prevMascota,
+        [name]: value
+      }));
+    }
   };
+  
+
 
   return (
     <div
@@ -60,8 +83,8 @@ function Form({ onSubmit }) {
                 <div key={index}>
                   <input
                     type="checkbox"
-                    name={checkbox.name}
-                    onChange={() => {}}
+                    name={checkbox.name}         
+                    onChange={handleOnChange}
                   />
                   {checkbox.name}
                 </div>
@@ -75,7 +98,7 @@ function Form({ onSubmit }) {
             <label>
               Raza
               <br />
-              <select id="select" value={mascota.raza} onChange={() => {}}>
+              <select id="select" name="raza" value={mascota.raza} onChange={handleOnChange}>
                 <option value="">Selecciona una opción</option>
                 <option value="Pura">Raza Pura</option>
                 <option value="Mezcla">Mezcla de Raza</option>
@@ -94,10 +117,10 @@ function Form({ onSubmit }) {
                 <label>
                   <input
                     type="radio"
-                    name="big"
+                    name="tamaño"
                     value="Big"
-                    // checked={selectedRadio === 'Big'}
-                    // onChange={handleRadioChange}
+                    checked={mascota.tamaño === 'Big'}
+                    onChange={handleOnChange}
                   />
                   Big Dog
                 </label>
@@ -106,10 +129,10 @@ function Form({ onSubmit }) {
                 <label>
                   <input
                     type="radio"
-                    name="little"
+                    name="tamaño"
                     value="Little"
-                    // checked={selectedRadio === 'Little'}
-                    // onChange={handleRadioChange}
+                    checked={mascota.tamaño === 'Little'}
+                    onChange={handleOnChange}
                   />
                   Little Dog
                 </label>
