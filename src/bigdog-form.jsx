@@ -4,7 +4,7 @@ import swal from "@sweetalert/with-react";
 import SecretComponent from "./components/secretComponent";
 import { useState } from "react";
 
-function BigdogForm2() {
+function BigdogForm() {
   const [showSpinner, setShowSpinner] = useState(false);
   const [showSecretComponent, setShowSecretComponent] = useState(false);
   
@@ -69,5 +69,5 @@ function BigdogForm2() {
 
 }
 
-export default BigdogForm2;
+export default BigdogForm;
 

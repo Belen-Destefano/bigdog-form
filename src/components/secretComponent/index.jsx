@@ -3,7 +3,7 @@
 function SecretComponent({handleClick}) {
 
     document.body.style.backgroundImage = 'url(/backgroundSecret.jpg)';
-    document.body.style.placeItems= 'start';
+    
   return (
         <div style={{marginTop: '3%',  backgroundColor: 'rgb(0 0 0 / 70%)', padding: '10%'}}>
             <h1 style={{    color: 'white' , textAlign: 'center'}}>

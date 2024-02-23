@@ -15,6 +15,7 @@ function Form({ onSubmit }) {
   const handleOnSubmit = (e) => {
     e.preventDefault()
     onSubmit(mascota)
+    console.log(mascota);
    
   }
 
@@ -25,7 +26,7 @@ function Form({ onSubmit }) {
   const handleOnChange = (event) => {
     const { name, value, checked, type } = event.target;
   
-    if (type === "checkbox") {
+    if (type === "checkbox"  ) {
       setMascota(prevMascota => ({
         ...prevMascota,
         habilidades: {
